@@ -3184,34 +3184,32 @@ function serve({ prefix, pathname, cache_control }
 
 function noop$1(){}
 
-const {createServer} = require('https'); //RMV
-const {readFileSync} = require('fs'); //RMV
+//const {createServer} = require('https'); //RMV
 
 const {PORT, NODE_ENV} = process.env;
 const dev = NODE_ENV === 'development';
 
-//RMV
+/*
 const options = {
   key: readFileSync('ssl/foobar.key'),
   cert: readFileSync('ssl/foobar.crt')
 };
 console.log('server.js x: options =', options);
+*/
 
-/*
 polka() // You can also use Express
-  .use(compression({threshold: 0}), sirv('static', {dev}), sapper.middleware())
+  .use(compression({threshold: 0}), sirv('static', {dev}), middleware())
   .listen(PORT, err => {
     if (err) console.log('error', err);
   });
-*/
-//RMV
+/*
 const {handler} = polka().use(
   compression({threshold: 0}),
   sirv('static', {dev}),
-  middleware()
+  sapper.middleware()
 );
 
-//RMV
 createServer(options, handler).listen(PORT, err => {
   if (err) console.log('error', err);
 });
+*/
